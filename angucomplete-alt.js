@@ -76,6 +76,7 @@ angular.module('angucomplete-alt', [] )
       pause: '@',
       searchFields: '@',
       minlength: '@',
+      resultsLimit: '@',
       matchClass: '@',
       clearSelected: '@',
       overrideSuggestions: '@',
@@ -519,6 +520,9 @@ angular.module('angucomplete-alt', [] )
                   {title: text, desc: description || ''}, scope.searchStr);
             }
           }
+
+        if(scope.resultsLimit !== undefined)
+          scope.results = scope.results.splice(0,scope.resultsLimit);
 
         } else {
           scope.results = [];
